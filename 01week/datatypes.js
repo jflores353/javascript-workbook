@@ -41,7 +41,7 @@ const displayDateAndTime = () =>{
       return 'Not a number'
     }
   // String
-    else(typeof arg1 == string){
+    else if(typeof arg1 == 'string'){
       return 'String'
     };
   }
