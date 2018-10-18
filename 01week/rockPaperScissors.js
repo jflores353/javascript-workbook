@@ -21,20 +21,32 @@ function rockPaperScissors(hand1, hand2) {
 // Write code here 
   //If both players choose the same object to play then display "It is a draw"
   if (hand1 === hand2){
-    return "It is a draw"
-  } else if (hand1 === "rock" && hand2 === "scissors"){
-    return "Player 1 wins!"
-  } else if (hand1 === "paper" && hand2 === "rock"){
-    return "Player 1 wins!"
-  }else if (hand1 === "scissors" && hand2 === "paper"){
-    return "Player 1 wins!"
-  }else if (hand1 === "rock" && hand2 === "paper"){
-    return "Player 2 wins!"
-  }else if (hand1 === "paper" && hand2 === "scissors"){
-    return "Player 2 wins!"
-  }else if (hand1 === "scissors" && hand2 == "rock"){
-    return "Player 2 wins!"
-  };
+    return "It is a draw";
+  } else if (hand1 === "rock"){
+      if(hand2 === "scissors"){
+        return "Rock wins. Player one is victorious!";
+      } else if (hand1 === "paper"){
+          if (hand2 === "rock"){
+            return "Paper wins. Player one is the winner!";
+          } else if (hand1 === "scissors"){
+              if (hand2 === "paper"){
+                return "Scissors win. Player one is the best!";
+              } else if (hand2 === "rock"){
+                  if (hand1 === "scissors"){
+                    return "Rock wins. Player two is victorious!";
+                  } else if (hand2 === "paper"){
+                      if  (hand1 === "rock"){
+                        return "Paper wins. Player two is the winner!";
+                      } else if (hand2 === "scissors"){
+                          if (hand1 === "paper"){
+                            return "Scissors win. Player two is the best!";
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
 }
 
 rockPaperScissors();
@@ -42,7 +54,7 @@ rockPaperScissors();
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( (answer1, answer2) );
+      console.log(rockPaperScissors (answer1, answer2) );
       getPrompt();
     });
   });
