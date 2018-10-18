@@ -17,44 +17,46 @@ const rl = readline.createInterface({
   //If player1 picks scissors and player2 picks rock then display "Player 2 wins"
   //If player1 picks scissors and player2 picks paper then display "Player 1 wins"
 
-function rockPaperScissors(hand1, hand2) {
+
+  function rockPaperScissors(handOne, handTwo) {
 // Write code here 
   //If both players choose the same object to play then display "It is a draw"
-  if (hand1 === hand2){
-    return "It is a draw";
-  } else if (hand1 === "rock"){
-      if(hand2 === "scissors"){
-        return "Rock wins. Player one is victorious!";
-      } else if (hand1 === "paper"){
-          if (hand2 === "rock"){
-            return "Paper wins. Player one is the winner!";
-          } else if (hand1 === "scissors"){
-              if (hand2 === "paper"){
-                return "Scissors win. Player one is the best!";
-              } else if (hand2 === "rock"){
-                  if (hand1 === "scissors"){
-                    return "Rock wins. Player two is victorious!";
-                  } else if (hand2 === "paper"){
-                      if  (hand1 === "rock"){
-                        return "Paper wins. Player two is the winner!";
-                      } else if (hand2 === "scissors"){
-                          if (hand1 === "paper"){
-                            return "Scissors win. Player two is the best!";
-                          }
-                      }
-                  }
-              }
-          }
-      }
-  }
-}
+      let hand1 = handOne.toLowerCase();
+      let hand2 = handTwo.toLowerCase(); 
+      if (hand1 !== "rock" && hand1 !== "paper" && hand1 !=="scissors" || hand2 !== "rock" && hand2 !== "paper" && hand2 !== "scissors"){
 
-rockPaperScissors();
+        console.log("Please choose rock, paper or scissors");
+        getPrompt();
+      }
+   
+      else if (hand1 === "rock" && hand2 === "scissors"){
+        console.log( "Rock wins. Player one is victorious!");
+      }
+      else if (hand1 === "paper" && hand2 === "rock"){
+        console.log( "Paper wins. Player one is the winner!");
+          } 
+      else if (hand1 === "scissors" && hand2 === "paper"){
+        console.log( "Scissors win. Player one is the best!");
+              }
+      else if (hand2 === "rock" && hand1 === "scissors"){
+         console.log( "Rock wins. Player two is victorious!");
+                  } 
+      else if (hand2 === "paper" && hand1 === "rock"){
+        console.log( "Paper wins. Player two is the winner!");
+                      } 
+      else if (hand2 === "scissors" && hand1 === "paper"){
+        console.log( "Scissors win. Player two is the best!");
+                          }
+      else {
+        console.log( "It is a draw");
+      }
+}
+    
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log(rockPaperScissors (answer1, answer2) );
+      rockPaperScissors (answer1, answer2);
       getPrompt();
     });
   });
