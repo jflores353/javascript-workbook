@@ -7,12 +7,26 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
+// If word does not start with a vowel, remove first letter, move to end, and add `ay`. If it does start with a vowel then
+// we want to just add `way` to the end.
 function pigLatin(word) {
-
-  // Your code here
-
+ // Your code here
+  const firstLetterType = detectVowel(word);
+    if(firstLetterType > 0){
+      return word.slice(firstLetterType) + word.slice(0, firstLetterType) + `ay`;
+    } 
+      return word + `way`;
 }
+// Need to determine the position of the first vowel. 
+// If loop detects "aeiou" then return the position(indexOf) of the first vowel.
+const detectVowel = (word) =>{
+  for(let i=0; i < word.length; i++){
+    if("aeiou".indexOf(word[i]) !== -1){
+    return (i);
+    }
+  }
+}
+
 
 
 function getPrompt() {
