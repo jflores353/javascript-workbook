@@ -7,17 +7,52 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+//Both Player 1 and Player 2 will each pick a valid object(string) to play
+//If both players enter valid object then show game result
+//If one or both players enters an invalid object to play inform user "Please choose valid play"
+//If player1 picks rock and player2 picks paper then display "Player 2 wins"
+//If player1 picks rock and player2 picks scissors then display "Player 1 wins"
+//If player1 picks paper and player2 picks rock then display "Player 2 wins"
+//If player1 picks paper and player2 picks scissors then display "Player 2 wins"
+//If player1 picks scissors and player2 picks rock then display "Player 2 wins"
+//If player1 picks scissors and player2 picks paper then display "Player 1 wins"
+//If both players choose the same object to play then display "It is a draw"
+function rockPaperScissors(handOne, handTwo) {
+// Write code here 
+  
+  let hand1 = handOne.toLowerCase();
+  let hand2 = handTwo.toLowerCase(); 
+  if (hand1 !== "rock" && hand1 !== "paper" && hand1 !=="scissors" || hand2 !== "rock" && hand2 !== "paper" && hand2 !== "scissors"){
+    return `Please choose rock, paper or scissors`;
+  }
+    else if (hand1 === "rock" && hand2 === "scissors"){
+      return `Rock wins. Player one is victorious!`;
+    }
+      else if (hand1 === "paper" && hand2 === "rock"){
+        return `Paper wins. Player one is the winner!`;
+      } 
+        else if (hand1 === "scissors" && hand2 === "paper"){
+          return `Scissors win. Player one is the best!`;
+        }
+          else if (hand2 === "rock" && hand1 === "scissors"){
+            return `Rock wins. Player two is victorious!`;
+          } 
+            else if (hand2 === "paper" && hand1 === "rock"){
+              return `Paper wins. Player two is the winner!`;
+            } 
+              else if (hand2 === "scissors" && hand1 === "paper"){
+                return `Scissors win. Player two is the best!`;
+              }
+                else {
+                  return `It's a draw`;
+                }
 }
+    
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log( rockPaperScissors (answer1, answer2) );
       getPrompt();
     });
   });
