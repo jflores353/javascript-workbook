@@ -44,7 +44,7 @@ function rockPaperScissors(handOne, handTwo) {
                 return `Scissors win. Player two is the best!`;
               }
                 else {
-                  return `It is a draw"`;
+                  return `It's a draw`;
                 }
 }
     
@@ -52,7 +52,7 @@ function rockPaperScissors(handOne, handTwo) {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      rockPaperScissors (answer1, answer2);
+      console.log( rockPaperScissors (answer1, answer2) );
       getPrompt();
     });
   });
