@@ -4,7 +4,9 @@ if (typeof describe === 'function') {
 
     describe('#rockPaperScissors()', () => {
       it(`should scrub input to ensure only valid play of either:'rock', 'paper' or 'scissors' is played`, () => {
-        assert.equal(rockPaperScissors(''), "Please play either rock, paper or scissors.");
+        assert.equal(rockPaperScissors('' , ''), "Please play either rock, paper or scissors.");
+        assert.equal(rockPaperScissors('ball', 'hammer'), "Please play either rock, paper or scissors.");
+        assert.equal(rockPaperScissors('pen', 'pencil'), "Please play either rock, paper or scissors.");        
       });
       it('should scrub input to ensure lowercase with "trim"ed whitespace', () => {
         assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
@@ -14,7 +16,7 @@ if (typeof describe === 'function') {
       it('should detect when hand one wins', () => {
         assert.equal(rockPaperScissors('paper', 'rock'), "Hand one wins!");
         assert.equal(rockPaperScissors('scissors', 'paper'), "Hand one wins!");
-        assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+        assert.equal(rockPaperScissors('rock ', 'scissors'), "Hand one wins!");
       });
       it('should detect when hand two wins', () => {
         assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
@@ -27,7 +29,9 @@ if (typeof describe === 'function') {
         assert.equal(rockPaperScissors('scissors', 'scissors'), "It's a tie!");
       });
       it('should detect if one object has been played and not any additional', () => {
-        assert.equal(rockPaperScissors('rock paper'), "Only play one item");
+        assert.equal(rockPaperScissors('rock paper', 'paper rock'), "Only play one item");
+        assert.equal(rockPaperScissors('scissors rock', 'rock scissors'), "Only play one item");
+        assert.equal(rockPaperScissors('paper scissors', 'paper scissors'), "Only play one item");
       });
     });
   } else {
