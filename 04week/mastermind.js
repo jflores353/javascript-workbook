@@ -1,4 +1,7 @@
 'use strict';
+// User enters a guess (input)
+// => match user guess to a soltution, format guess (lowerCase, trim)
+// Guess has to be valid , vailid means in letters array, length of 4, cant be empty
 
 const assert = require('assert');
 const readline = require('readline');
@@ -24,6 +27,19 @@ function generateSolution() {
   }
 }
 
+// user enters guess, guess has to be valid,
+const isValid = (guess) =>{
+  //if valid return true and pushEntryToBoard
+  // else return invalid guess and tell user 'Must be in letters array
+}
+
+const checkForWin = () =>{
+  // if true and guess matches solution return 'You guessed the solution' , show solution
+  // reset board
+  // else check for turns
+}
+
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -35,6 +51,19 @@ function generateHint() {
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+  if(ifValid(guess)){
+    board.push(guess)
+    if(checkForWin(guess)){
+      //tell the user
+      resetTheBoard();
+    }
+  }else if(hasGuessesRemaining()){
+
+    //tell the user why not valid
+    resetTheBoard();
+  }else{
+    showHints();
+  }
 }
 
 
