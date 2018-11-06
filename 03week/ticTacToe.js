@@ -21,7 +21,7 @@ let board = [
 
 let playerTurn = 'X';
 
-function printBoard() {
+const printBoard = () => {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
   console.log('  ---------');
@@ -57,11 +57,11 @@ function printBoard() {
 //     }
 // }
 
-const isPlayerTurn = (val)=>{
+const isPlayerTurn = (val) => {
   return val === playerTurn;
 }
 
-function horizontalWin() {
+const horizontalWin = () => {
   if(board[0].every(isPlayerTurn) || board[1].every(isPlayerTurn) || board[2].every(isPlayerTurn)){
     console.log(`${playerTurn} wins!`)
     return true;
@@ -69,46 +69,46 @@ function horizontalWin() {
 }
 
 
-function verticalWin() {
+const verticalWin = () => {
   if(board[0][0] && board[1][0] && board[2][0] == playerTurn  ||board[0][1] && board[1][1] && board[2][1] == playerTurn || board[0][2] && board[1][2] && board[2][2] == playerTurn){
     console.log(`${playerTurn} wins!`)
     return true;
   }
 }
 
-function diagonalWin() {
+const diagonalWin = () => {
   if(board[0][0] && board[1][1] && board[2][2] == playerTurn || board[0][2] && board[1][1] && board[2][0] == playerTurn){
     console.log(`${playerTurn} wins!`)
     return true;
   }
 }
 
-function checkForWin() {
+const checkForWin = () => {
   return horizontalWin() || verticalWin() || diagonalWin()  
 };
 
-function isValidMove(row, column){
+const isValidMove = (row, column) => {
   return board[row][column] === ' '
 };
 
-function switchPlayer(){
-  if(playerTurn === 'X'){
-    playerTurn === 'O'
+const switchPlayer = () => {
+  if(playerTurn == 'X'){
+    playerTurn = 'O'
   } else {
-    playerTurn === 'X'
+    playerTurn = 'X'
   }
 };
 
-function ticTacToe(row, column) {
+const ticTacToe = (row, column) => {
   if(isValidMove(row, column)){
-    board[row][column] = playerTurn
+    board[row][column] = playerTurn;
   } if (!checkForWin()){
     switchPlayer()
   }
 };
 
 
-function getPrompt() {
+const getPrompt = () => {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
   rl.question('row: ', (row) => {
