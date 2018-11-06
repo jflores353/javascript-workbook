@@ -18,17 +18,13 @@ let stacks = {
   c: []
 };
 
-const piece1 = 1;
-const piece2 = 2;
-const piece3 = 3;
-const piece4 = 4;
-const winner = [piece1, piece2, piece3, piece4];
-
-let stacksArr = Object.values(stacks);
+const piece = [4, 3, 2, 1];
+const stackArrA = stacks.a;
+const stackArrB = stacks.b;
+const stackArrC = stacks.c;
+let stacksArr = Object.values(stacks);// returns stacks property values
+let stacksProps = Object.keys(stacks);// returns keys as array ['a','b','c']
 let stacksArrLength = stacksArr.length;
-let stacksArrA = stacksArr[0];
-let stacksArrB = stacksArr[1];
-let stacksArrC = stacksArr[2];
 
 function printStacks() {
   console.log("a: " + stacks.a);
@@ -37,9 +33,10 @@ function printStacks() {
 }
 // Only remove one piece at a time from top of any startStack
 // Remove last element only
-function movePiece(startStack, endStack){
-  endStack.push(startStack.pop());
-  console.log('startStack => endStack');
+function movePiece(piece, startStack, endStack){
+  // endStack.push(startStack.pop());
+  // console.log('startStack => endStack');
+
 }
 // Accepts two inputs (towers) one from startStack and one from endStack
 // Will return false if piece from startStack is larger than the piece on the endStack
@@ -62,7 +59,8 @@ function isLegal(startStack, endStack) {
 // All disks must be appropriately stacked at 'stacks.c' for winning position
 function checkForWin() {
   if(stacksArrC == winner){
-    return `You have completed the Towers of Hanoi!!!`
+    return `You have completed the Towers of Hanoi!!!`;
+    console.log('checkedForWin');
   } 
 }
 
@@ -70,9 +68,9 @@ function towersOfHanoi(startStack, endStack) {
   const gameStart = [0, 0, 2, 0, 1, 1];
   const endStart = [2, 1, 1, 2, 0, 2];
   //for each element in start array, 
-  for(var i = 0; i < Start.length; i++){
-    if (isLegal(stacksArr[start[i]], stacksArr[end[i]])){
-      movePiece(stacksArr[start[i]], stacksArr[end[i]])
+  for(let i = 0; i < startStack.length; i++){
+    if (isLegal(stacksArr[gameStart[i]], stacksArr[endStart[i]])){
+      movePiece(stacksArr[gameStart[i]], stacksArr[endStart[i]])
     } else (isLegal == false);
       return `Move was not legal from start to end.`
   }
