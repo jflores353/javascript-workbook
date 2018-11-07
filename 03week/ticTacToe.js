@@ -30,33 +30,6 @@ const printBoard = () => {
   console.log('2 ' + board[2].join(' | '));
 }
 
-// const player1 = 'X';
-// const player2 = 'Y';
-// const horizontalWin0 = board[0]
-// const horizontalWin1 = board[1]
-// const horizontalWin2 = board[2]
-// const verticalWin0 = [board[0][0] , board[1][0] , board[2][0]];
-// const verticalWin1 = [board[0][1] , board[1][1] , board[2][1]];
-// const verticalWin2 = [board[0][2] , board[1][2] , board[2][2]];
-// const diagonalWin1 = [board[0][0] , board[1][1] , board[2][2]];
-// const diagonalWin2 = [board[0][2] , board[1][1] , board[2][0]];
-
-// const ifValidPlay = () =>{
-//   let playerTurn = player1;
-//   if(player1 !== 'x'){
-//     return `Please enter a 'x' to play`;
-//   }
-//     else{
-//       board.splice()
-//     }
-//     if(player2 !== 'y'){
-//       return `Please enter a 'y' to play`;
-//     } 
-//     else{
-//       board.splice();
-//     }
-// }
-
 const isPlayerTurn = (val) => {
   return val === playerTurn;
 }
@@ -98,6 +71,12 @@ const switchPlayer = () => {
     playerTurn = 'X'
   }
 };
+
+// const resetBoard = () => {
+//   board[0].splice(0, 3);
+//   board[1].splice(0, 3);
+//   board[2].splice(0, 3);
+// }
 
 const ticTacToe = (row, column) => {
   if(isValidMove(row, column)){
