@@ -12,6 +12,8 @@ let jobTypes = {
 // Your code here
 
 //tests
+// command to run test is npm test 05week/spaceTravelToMars.js run this in gitbash
+// if you see errors do npm install
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
