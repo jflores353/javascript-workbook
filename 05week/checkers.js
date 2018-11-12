@@ -7,17 +7,22 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
-function Checker() {
-  // Your code here
+// attributes => A symbol this.symbol = ...
+class Checker{
+  constructor(color){
+    this.color = color;
+  }
 }
 
+
+// attributes => A grid layout this.grid = ...
+// "In play" checkers this.checkers = ...
 class Board {
   constructor() {
     this.grid = []
   }
   // method that creates an 8x8 array, filled with null values
-  createGrid() {
+  this.createGrid() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -27,7 +32,7 @@ class Board {
       }
     }
   }
-  viewGrid() {
+  this.viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -51,16 +56,31 @@ class Board {
     }
     console.log(string);
   }
+  this.checkers=[];
+  this.createCheckers(){
+    const whitePositions = [[0,1],[0,3],[0,5],[0,7],[1,0],[1,2],[1,4],[1,6],[2,1],[2,3],[2,5],[2,7]];
+    const blackPositions = [[5,0],[5,2],[5,4],[6,1],[6,3],[6,5],[6,7],[7,0],[7,2],[7,4],[7,6]];
+    for(let i=0; i<12; i++){
+      this.checkers.push(new Checker("white",whitePosition[i]));
+			this.checkers.push(new Checker("black",blackPosition[i]));
+    }
+  }
+  selectChecker(row, column){
 
-  // Your code here
-}
+  }
+  // killChecker(){
 
+  // }
+};
+// attributes => A game board this.board=new Board()
+// methods => Starting a game
 class Game {
   constructor() {
     this.board = new Board;
   }
-  start() {
+  this.start() {
     this.board.createGrid();
+    this.board.createCheckers();
   }
 }
 
