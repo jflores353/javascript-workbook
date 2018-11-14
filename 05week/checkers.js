@@ -9,20 +9,22 @@ const rl = readline.createInterface({
 
 // attributes => A symbol this.symbol = ...
 class Checker{
-  constructor(color){
-    this.color = color;
+  constructor(symbol){
+    this.symbol = symbol;
   }
 }
-
+const white = new Checker('W');
+const black = new Checker('B');
 
 // attributes => A grid layout this.grid = ...
 // "In play" checkers this.checkers = ...
 class Board {
   constructor() {
-    this.grid = []
+    this.grid = [];
+    this.checkers = [];
   }
   // method that creates an 8x8 array, filled with null values
-  this.createGrid() {
+  createGrid() {
     // loop to create the 8 rows
     for (let row = 0; row < 8; row++) {
       this.grid[row] = [];
@@ -31,8 +33,31 @@ class Board {
         this.grid[row].push(null);
       }
     }
+    this.grid[20,20]= 'x'
   }
-  this.viewGrid() {
+  createCheckers(white, black){
+      for(let x = 0; x <= 2; x++ )
+      for(let y = 0; y <= 7; y++){
+        if(y % 2 === 0 ){
+          this.board.grid[x][y] = white;
+        }else if(y % 2 !== 0){
+          this.board.grid[x][y] = white;
+        }
+      }
+      for(let x =)
+    
+    // const positionBlack=(black)=>{
+    //   for(let x = 7; x <= 5; x++)
+    //   for(let y = 0; y <= 2; y++){
+    //     if(y % 2 === 0){
+    //       this.grid[x,y] = black;
+    //     }else if(y % 2 !== 0){
+    //       this.grid[x, y] = black;
+    //     }
+    //   }
+    //}
+  }
+  viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -56,33 +81,49 @@ class Board {
     }
     console.log(string);
   }
-  this.checkers=[];
-  this.createCheckers(){
-    const whitePositions = [[0,1],[0,3],[0,5],[0,7],[1,0],[1,2],[1,4],[1,6],[2,1],[2,3],[2,5],[2,7]];
-    const blackPositions = [[5,0],[5,2],[5,4],[6,1],[6,3],[6,5],[6,7],[7,0],[7,2],[7,4],[7,6]];
-    for(let i=0; i<12; i++){
-      this.checkers.push(new Checker("white",whitePosition[i]));
-			this.checkers.push(new Checker("black",blackPosition[i]));
-    }
-  }
-  selectChecker(row, column){
-
-  }
-  // killChecker(){
+  // createCheckers(){
+  //   const whitePositions = [[0,1],[0,3],[0,5],[0,7],[1,0],[1,2],[1,4],[1,6],[2,1],[2,3],[2,5],[2,7]];
+  //   const blackPositions = [[5,0],[5,2],[5,4],[6,1],[6,3],[6,5],[6,7],[7,0],[7,2],[7,4],[7,6]];
+  //   for(let i=0; i<12; i++){
+  //     this.checkers.push(new Checker("white",whitePositions[i]));
+	// 		this.checkers.push(new Checker("black",blackPositions[i]));
+  //   }
+  // }
+  // selectChecker(row, column){
 
   // }
-};
+  // // killChecker(){
+
+  // // }
+}
+
 // attributes => A game board this.board=new Board()
 // methods => Starting a game
+
+
 class Game {
   constructor() {
     this.board = new Board;
   }
-  this.start() {
+  start() {
     this.board.createGrid();
-    this.board.createCheckers();
+  }
+  createCheckers(white){
+    for(let x = 0; x <= 2; x++ ){
+      for(let y = 0; y <= 7; y++){
+        if(y % 2 === 0 && x % 2 === 0){
+          this.board.grid[x][y] = white;
+        }
+      }
+      for(let y = 0; y <= 7; y++){
+        if(y % 2 !== 0 && x === 1){
+          this.board.grid[x][y] = white;
+      }
+    }
   }
 }
+}
+  
 
 function getPrompt() {
   game.board.viewGrid();
@@ -96,7 +137,7 @@ function getPrompt() {
 
 const game = new Game();
 game.start();
-
+game.createCheckers(white);
 
 // Tests
 if (typeof describe === 'function') {
