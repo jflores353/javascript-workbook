@@ -35,17 +35,26 @@ class Board {
     }
     this.grid[20,20]= 'x'
   }
-  createCheckers(white, black){
-      for(let x = 0; x <= 2; x++ )
-      for(let y = 0; y <= 7; y++){
-        if(y % 2 === 0 ){
-          this.board.grid[x][y] = white;
-        }else if(y % 2 !== 0){
-          this.board.grid[x][y] = white;
-        }
-      }
-      for(let x =)
-    
+  // createCheckers(){
+  //     for(let x = 0; x <= 2; x++){
+  //       for(let y = 0; y <= 7; y++){
+  //         if(y % 2 === 0 ){
+  //           this.board.grid[x][y] = white;
+  //         }else if(y % 2 !== 0){
+  //           this.board.grid[x][y] = white;
+  //         }
+  //       }
+  //     }
+  //     for(let x = 5; x <= 7; x++){
+  //       for(let y = 0; y <= 7; y++){
+  //         if(y % 2 !== 0){
+  //           this.board.grid[x][y] = black;
+  //         }else if(y % 2 === 0){
+  //           this.board.grid[x][y] = black;
+  //         }
+  //       }
+  //     }
+
     // const positionBlack=(black)=>{
     //   for(let x = 7; x <= 5; x++)
     //   for(let y = 0; y <= 2; y++){
@@ -56,7 +65,7 @@ class Board {
     //     }
     //   }
     //}
-  }
+  
   viewGrid() {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
@@ -108,21 +117,35 @@ class Game {
   start() {
     this.board.createGrid();
   }
-  createCheckers(white){
-    for(let x = 0; x <= 2; x++ ){
-      for(let y = 0; y <= 7; y++){
-        if(y % 2 === 0 && x % 2 === 0){
-          this.board.grid[x][y] = white;
-        }
-      }
-      for(let y = 0; y <= 7; y++){
-        if(y % 2 !== 0 && x === 1){
-          this.board.grid[x][y] = white;
-      }
-    }
-  }
+  createCheckers()
+  // createCheckers(){
+  //   for(let x = 0; x <= 2; x++ ){
+  //     for(let y = 0; y <= 7; y++){
+  //       if(y % 2 === 0 && x % 2 === 0){
+  //         this.board.grid[x][y] = white;
+  //       }
+  //     }
+  //     for(let y = 0; y <= 7; y++){
+  //       if(y % 2 !== 0 && x === 1){
+  //         this.board.grid[x][y] = white;
+  //       }
+  //     }
+  //   }
+  //   for(let x = 5; x <= 7; x++){
+  //     for(let y = 0; y <= 7; y++){
+  //       if(y % 2 === 0 && x % 2 !== 0){
+  //         this.board.grid[x][y] = black;
+  //       }  
+  //     } 
+  //     for(let y = 0; y <= 7; y++){
+  //       if(y % 2 !== 0 && x == 1){
+  //         this.board.grid[x][y] = black;
+  //       }  
+  //     } 
+  //   }
+  // }
 }
-}
+
   
 
 function getPrompt() {
@@ -137,7 +160,7 @@ function getPrompt() {
 
 const game = new Game();
 game.start();
-game.createCheckers(white);
+game.createCheckers();
 
 // Tests
 if (typeof describe === 'function') {
