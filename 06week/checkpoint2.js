@@ -99,6 +99,15 @@ const weatherStates = weather.forEach((name) => {
 console.log(weatherStates)
 
 //find the id of the object in weather that has a min_temp of 15.915
+// idealTemp returns the object that has the min_temp of 15.915
+const idealTemp = weather.find((item) => {
+  return item.min_temp === 15.915;
+})
+// console.log(idealTemp);
 
-const idealTemp = 
-console.log(idealTemp)
+// idNum will return the id of the object with a min_temp of 15.915
+let idNum = '';
+if(idealTemp){
+  idNum = idealTemp.id;
+}
+console.log(idNum);
