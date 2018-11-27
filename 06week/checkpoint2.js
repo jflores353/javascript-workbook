@@ -4,16 +4,23 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
 const nums = strNums.map((x) => {
   return parseInt(x, 10);
 })
+
 console.log(nums);
 
 // Find the sum of the even values
-const sumEvens = strNums.filter((evens)=>{
+// sumEvens will extract the even integers
+const evenNums = nums.filter((evens)=>{
   return evens % 2 === 0;
 })
-console.log(sumEvens);
+
+console.log(evenNums);
+// reducer function will add each element of the evenNums array 
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+console.log(evenNums.reduce(reducer));
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
-// const atxIdx = ;
+const atxIdx = 
 
 console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
@@ -82,13 +89,16 @@ const weather = [
     visibility: 11.14056410562316,
     predictability: 71
   },
-],
+]
 
-//using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
-// const weatherStates = 
-// console.log(weatherStates)
+//using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. 
+// Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
+const weatherStates = weather.forEach((name) => {
+  console.log(name.weather_state_name);
+})
+console.log(weatherStates)
 
 //find the id of the object in weather that has a min_temp of 15.915
 
-// const idealTemp = 
-// console.log(idealTemp)
+const idealTemp = 
+console.log(idealTemp)
