@@ -19,10 +19,13 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 console.log(evenNums.reduce(reducer));
 
-// Find the index of the first "Austin" value (the value plus its index equals 512)
-const atxIdx = 
+// Find the index of the first "Austin" value (the value plus its index equals 512) 
+const atxIDx = nums.findIndex((value,index)=>{
+  return value + index === 512;
+  });
+  console.log(atxIDx);
 
-console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
 const weather = [
   { id: 5743823523151872,
