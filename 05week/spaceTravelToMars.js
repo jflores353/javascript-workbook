@@ -9,7 +9,14 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+  }
+}
 
 //tests
 // command to run test is npm test 05week/spaceTravelToMars.js run this in gitbash
