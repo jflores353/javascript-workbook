@@ -18,6 +18,14 @@ class CrewMember {
   }
 }
 
+class Ship {
+  constructor(name, abreviation, ability){
+    this.name = name;
+    this.abreviation = abreviation;
+    this.ability = ability;
+  }
+}
+
 //tests
 // command to run test is npm test 05week/spaceTravelToMars.js run this in gitbash
 // if you see errors do npm install
