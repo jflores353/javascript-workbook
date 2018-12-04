@@ -16,13 +16,21 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = ship;
   }
+  enterShip(CrewMember){
+    this.ship = CrewMember.name;  
+    return this;
+  }
 }
 
 class Ship {
-  constructor(name, abreviation, ability){
+  constructor(name, type, ability, crew){
     this.name = name;
-    this.abreviation = abreviation;
+    this.type = type;
     this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement(){
+    return this;
   }
 }
 
