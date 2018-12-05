@@ -16,9 +16,9 @@ class CrewMember {
     this.specialSkill = specialSkill;
     this.ship = ship;
   }
-  enterShip(CrewMember){
-    this.ship = CrewMember.name;  
-    return this;
+  enterShip (Ship) {
+    this.ship = Ship;  
+    Ship.crew.push(this.name);
   }
 }
 
@@ -29,10 +29,22 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
-  missionStatement(){
-    return this;
+  missionStatement () {
+    if(this.crew.length == 0){
+      console.log("Can't perform a mission yet.")
+    } else {
+      console.log("Ascend into low orbit")
+    };
   }
 }
+const eric = new CrewMember ('Eric', 'tires', 'alignment', 'CSS');
+
+const ship1 = new Ship ('SSbig', 'uBoat', 'speed', null);
+eric.enterShip(ship1);
+ship1.missionStatement();
+
+
+
 
 //tests
 // command to run test is npm test 05week/spaceTravelToMars.js run this in gitbash
