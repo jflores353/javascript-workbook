@@ -9,9 +9,50 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+  }
+  enterShip (Ship) {
+    this.ship = Ship;  
+    Ship.crew.push(this.name);
+  }
+}
+
+class Ship {
+  constructor(name, type, ability, crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement () {
+    if(this.crew.length == 0){
+      console.log("Can't perform a mission yet.")
+    } else {
+      console.log("Ascend into low orbit")
+    };
+  }
+}
+
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+
+crewMember1.enterShip(mav);
+console.log(crewMember1);
+crewMember2.enterShip(hermes);
+console.log(crewMember2);
+mav.missionStatement();
+hermes.missionStatement();
 
 //tests
+// command to run test is npm test 05week/spaceTravelToMars.js run this in gitbash
+// if you see errors do npm install
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
