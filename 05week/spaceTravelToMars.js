@@ -37,14 +37,18 @@ class Ship {
     };
   }
 }
-const eric = new CrewMember ('Eric', 'tires', 'alignment', 'CSS');
 
-const ship1 = new Ship ('SSbig', 'uBoat', 'speed', null);
-eric.enterShip(ship1);
-ship1.missionStatement();
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
 
-
-
+crewMember1.enterShip(mav);
+console.log(crewMember1);
+crewMember2.enterShip(hermes);
+console.log(crewMember2);
+mav.missionStatement();
+hermes.missionStatement();
 
 //tests
 // command to run test is npm test 05week/spaceTravelToMars.js run this in gitbash
