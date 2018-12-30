@@ -2,25 +2,74 @@
 
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+const tvSeries = [
+  {name: "Breaking Bad", category: "Drama", year: 2008},
+  {name: "Family Guy", category: "Comedy", year: 1999},
+  {name: "Sopranos", category: "Drama", year: 1999},
+  {name: "Game of Thrones", category: "Action", year: 2011}
+]
+
+const seriesYears = [2008, 2000, 1999, 2011];
+
+
+// *** forEach ***
+// get all objects inside tvSeries array
+for(let i = 0; i < tvSeries.length; i++){
+  console.log(tvSeries[i]);
+}
+// get names from tvSeries
+tvSeries.forEach(title => {
+  console.log(title.name);
+})
+
+// *** map ***
+// get all years from seriesYears and add 'Year' to the beginning of each in new array
+const addYear = [];
+
+for(let i = 0; i < seriesYears.length; i++){
+  console.log(addYear.unshift(`Year`+ ' ' + seriesYears[i]))
+};
+
+console.log(addYear);
+
+// get length of each series and create new array with info
+const ageOfSeries = tvSeries.map(title => `${title.name} ${(title.end - title.start) + " " + "seasons"}`);
+
+console.log(ageOfSeries);
+
+// *** filter ***
+
+// get all seriesYears that started after the start of the year 2000 and push to new array
+const seriesAfterMillenium = [];
+
+for(let i = 0; i < seriesYears.length; i++){
+  if(seriesYears[i] >= 2000){
+    seriesAfterMillenium.push(seriesYears[i]);
+  }
 }
 
-function map(arr, callback) {
-  // Your code here
-}
+console.log(seriesAfterMillenium);
 
-function filter(arr, callback) {
-  // Your code here
-}
+// get all series from tvSeries that started before year 2000
+const seriesBeforeMillenium = tvSeries.filter(date => date.year < 2000);
 
-function some(arr, callback) {
-  // Your code here
-}
+console.log(seriesBeforeMillenium);
 
-function every(arr, callback) {
-  // Your code here
-}
+// *** somed *** 
+
+// get boolean value if Any values satisfy before year 2000
+const beforeMillenium = year => year < 2000;
+
+console.log(seriesYears.some(beforeMillenium));
+//returns true because of 1999
+
+// *** every ***
+
+// get boolean value if All values satisfy after year 2000 
+const allAfterMillenium = year => year >= 2000;
+
+console.log(seriesYears.every(allAfterMillenium));
+// returns false becacuse of 1999
 
 if (typeof describe === 'function') {
 
